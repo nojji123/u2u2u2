@@ -1,0 +1,188 @@
+@charset "UTF-8";
+
+
+
+html,
+body,
+nav,
+header,
+main,
+aside,
+footer,
+article,
+section,
+div {
+    margin: 0;
+    padding: 0;
+}
+
+
+
+html,
+body {
+    height: 100vh;
+}
+
+body {
+    background-color: bisque;
+    display: grid;
+    grid-template-columns: 100px 150px 1fr 1fr 100px;
+    grid-template-rows: 100px auto 40px;
+    grid-template-areas:
+        ". nav header header ."
+        ". nav main main ."
+        ". footer footer footer .";
+}
+
+p {
+    font-size: 18px;
+}
+
+img {
+    max-width: 100%;
+}
+
+div p {
+    color: blueviolet;
+    padding: 10px;
+    background-color: rgb(238, 214, 0);
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+.titlar {
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.titlar:hover {
+    transform: skew(20deg);
+    transition: all 1s;
+}
+
+h2 {
+    color: goldenrod
+}
+
+nav {
+    grid-area: nav;
+    background-color: aqua;
+
+}
+
+nav ul {
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0px;
+    text-align: center;
+}
+
+nav li {
+    list-style: none;
+    display: block;
+    padding: 20px;
+    border-radius: 40%;
+    background-color: darkkhaki;
+    margin: 10px;
+}
+
+header {
+    grid-area: header;
+    background-color: chartreuse;
+    text-align: center;
+}
+
+footer {
+    grid-area: footer;
+    background-color: dodgerblue
+}
+
+.main {
+    grid-area: main;
+    background: url(img/bakgrund.jpg);
+    text-align: center;
+
+}
+#menucheckbox,
+#menuburger {
+    display: none;
+}
+
+#navmeny{
+    display: none;
+}
+
+/*---------Media Queries*/
+@media screen and (max-width:1200px) {
+    body {
+        grid-template-columns: auto;
+        grid-template-rows: min-content min-content auto 80px;
+        grid-template-areas:
+            "nav"
+            "header"
+            "main"
+            "footer"
+        ;
+    }
+
+    nav li {
+        width: 20px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+@media screen and (max-width:800px) {
+    nav li {
+        display: inline;
+    }
+
+    header {
+        font-size: 12px;
+    }
+}
+
+
+
+@media screen and (max-width:400px) {
+    body {
+        grid-template-columns: auto;
+        grid-template-rows: min-content min-content auto 40px;
+        grid-template-areas:
+            "nav"
+            "header"
+            "main"
+            "footer"
+        ;
+    }
+
+    #navmeny {
+        background-image: url(img/hamburger.png);
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        cursor: pointer;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 0;
+        
+    }
+
+    #menucheckbox~ul {
+        display: none;
+    }
+
+    #menucheckbox:checked~ul {
+        display: flex;
+    }
+}
+
+#link{
+    background-color: greenyellow;
+    font-size: 2rem;
+}
